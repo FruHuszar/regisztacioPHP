@@ -56,6 +56,10 @@ ul {
         list-style-type: none;
 }
 
+.belepes-gomb {
+        background-color: grey;
+}
+
 
 
 @media screen and (max-width: 600px) {

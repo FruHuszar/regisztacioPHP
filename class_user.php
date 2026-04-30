@@ -29,7 +29,7 @@ class User {
         $jelszo = md5($jelszo);
 
         //ha nem regisztrált, létrehozzuk user jog-gal
-        if (true) { //num_row valami  true helyett
+        if (true) { //num_row valami  true helyett, ha nincs benne az adatbázisban
             $stmt = $this->kapcsolat->prepare("SQL INSERT");
             $stmt->bind_param("sss", $nev, $email, $jelszo);
             return $stmt->execute();
@@ -38,6 +38,7 @@ class User {
         }
     }
 
+    //ennek az eredménynek a méretét: num_rows adjuk vissza, 0 vagy 1, ha ezt ellenőriztük akkor beengedjük
     public function bejelentkezes($emailNev, $jelszo) {
         $titkosJelszo = md5($jelszo);
         $sql = "";

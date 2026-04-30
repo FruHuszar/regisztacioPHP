@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
                 <input type="password" name="jelszo" value="pass123">
                 <br>
                 <input type="submit" name="login" value="Regisztráció">
-                <input type="submit" name="registration" value="Belépés">
+                <input class="belepes-gomb" type="submit" name="registration" value="Belépés">
             </form>
         </main>
     </body>
