@@ -41,8 +41,17 @@ if (isset($_POST['submit'])) {
         <main>
             <h1>Regisztráció</h1>
             <form action="registration.php" method="post">
-                <label>Név:</label><br>
-                <input type="text" name="nev" value="Írd be a felh. neved">
+                <label>Név:</label>
+                <input type="text" name="nev" value="Jane doe">
+                <br>
+                <label>Email:</label>
+                <input type="text" name="email" value="example@email.com">
+                <br>
+                <label>Jelszo:</label>
+                <input type="password" name="jelszo" value="pass123">
+                <br>
+                <input type="submit" name="login" value="Regisztráció">
+                <input type="submit" name="registration" value="Belépés">
             </form>
         </main>
     </body>

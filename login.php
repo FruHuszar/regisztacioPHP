@@ -33,7 +33,18 @@
     <body>
         <main>
 		    <h1>Bejelentkezés</h1>
-            <form>
+                <form action="login.php" method="post">
+                <label>Név:</label>
+                <input type="text" name="nev" value="Jane doe">
+                <br>
+                <label>Email:</label>
+                <input type="text" name="email" value="example@email.com">
+                <br>
+                <label>Jelszo:</label>
+                <input type="password" name="jelszo" value="pass123">
+                <br>
+                <input type="submit" name="login" value="Regisztráció">
+                <input type="submit" name="registration" value="Belépés">
 			</form>
         </main>
     </body>
