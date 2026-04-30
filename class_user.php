@@ -28,9 +28,11 @@ class User {
     public function reg_felhasznalo($nev, $email, $jelszo) {
         $jelszo = md5($jelszo);
 
-        //ha nem regisztrált, létrehozzuk user jog-gal
-        if (true) { //num_row valami  true helyett, ha nincs benne az adatbázisban
-            $stmt = $this->kapcsolat->prepare("SQL INSERT");
+        $ellenoriz = "SELECT email from felhasznalo where email = '$email'";
+        $ellenoriz = $this->kapcsolat->query($ellenoriz);
+
+        if ($ellenoriz->num_rows == 0 ) { 
+            $stmt = $this->kapcsolat->prepare("INSERT INTO felhasznalo (felhAzon, jogAzon, nev, email, jelszo) VALUES  (NULL, '2', ?, ?, ?)");
             $stmt->bind_param("sss", $nev, $email, $jelszo);
             return $stmt->execute();
         } else { 
@@ -90,8 +92,8 @@ class User {
     }
 
     public function aktivok() {
-        $sql = "..."; //select where feltétellel
-        return null; // mátrix visszaadása
+        $sql = "SELECT new FROM felhasznalo WHERE bejelentkezett = 1";
+        return $this -> kapcsolat -> query($sql);
     }
 
     public function megjelenit_aktivok($matrix) {
