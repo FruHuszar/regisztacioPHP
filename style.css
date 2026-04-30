@@ -1,3 +1,7 @@
+:root {
+        --szin-belepes: grey;
+}
+
 * {
         box-sizing: border-box;
 }
@@ -56,8 +60,8 @@ ul {
         list-style-type: none;
 }
 
-.belepes-gomb {
-        background-color: grey;
+form .belepes-gomb {
+        background-color: var(--szin-belepes);
 }
 
 
