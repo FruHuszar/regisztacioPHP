@@ -1,12 +1,18 @@
 <?php
 class User {
-    private $host = "";
+    private $host = "localhost";
+    private $felhasznalo = "root";
+    private $jelszo = "";
+    private $adatbazis = "pizzahot";
     private $kapcsolat;
 
     public function __construct() {
         try {
             $this->kapcsolat = new mysqli(
-                $this->host
+                $this->host,
+                $this->felhasznalo,
+                $this->jelszo,
+                $this->adatbazis,
             ); 
 
             $this->kapcsolat->set_charset("utf8mb4");
@@ -23,13 +29,13 @@ class User {
         $jelszo = md5($jelszo);
 
         //ha nem regisztrált, létrehozzuk user jog-gal
-        /*if (true) { // A '...' helyett feltétel kell a szintaxishoz, ha ki lenne kommentelve
+        if (true) { //num_row valami  true helyett
             $stmt = $this->kapcsolat->prepare("SQL INSERT");
             $stmt->bind_param("sss", $nev, $email, $jelszo);
             return $stmt->execute();
         } else { 
             return false;
-        }*/
+        }
     }
 
     public function bejelentkezes($emailNev, $jelszo) {
@@ -75,7 +81,7 @@ class User {
 
     public function kijelentkezes() {
         $felhAzon = $_SESSION['felhAzon'] ?? null;
-        $sql = "...";
+        $sql = "..."; //bejelentkezett mező 0-ra állítása
         $result = null;
 
         $_SESSION = [];
@@ -83,12 +89,12 @@ class User {
     }
 
     public function aktivok() {
-        $sql = "...";
-        return null;
+        $sql = "..."; //select where feltétellel
+        return null; // mátrix visszaadása
     }
 
     public function megjelenit_aktivok($matrix) {
-        // Üres váz a szintaxis megőrzéséhez
+        // mátrix megjelenítése
     }
 }
 ?>

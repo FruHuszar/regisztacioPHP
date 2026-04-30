@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $login = $felh->bejelentkezes($nev, $jelszo);
 
         if ($login) {
-            header("Location: home.php");
+            header("Location: home.php"); //küldj át ide azonnal
             exit;
         }
     }
@@ -40,7 +40,9 @@ if (isset($_POST['submit'])) {
     <body>
         <main>
             <h1>Regisztráció</h1>
-            <form>
+            <form action="registration.php" method="post">
+                <label>Név:</label><br>
+                <input type="text" name="nev" value="Írd be a felh. neved">
             </form>
         </main>
     </body>

@@ -13,7 +13,7 @@ try {
 $felhAzon = $_SESSION['felhAzon'] ?? null;
 
 // logout kezelés
-if (isset($_GET['q']) && $_GET['q'] === 'logout') {
+if (isset($_GET['q']) && $_GET['q'] === 'logout') { //ezt a változót beállítani
     $felh->kijelentkezes();
     header("Location: login.php");
     exit;
